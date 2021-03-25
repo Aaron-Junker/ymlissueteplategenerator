@@ -1,14 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1><p style="color:red">This website is under construction</p></h1>
-    
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GitHub YML issue template generator</title>
+        <style>
+            * {
+                font-family: sans-serif;
+            }
+        </style>
+    </head>
+    <body> 
+        <header>
+            <h1><p style="color:red">This website is under construction</p></h1>
+            <h1>GitHub YML issue template generator</h1>
+        </header>
+        <article>
+            <section>
+                <p>GitHub has at the moment a closed beta for yml github templates. With them you can create forms.</p>
+                <p>This generator helps you to create them.</p>
+            </section>
+            <section>
+                <h3>Start creating</h3>
+                <form action="step2.html" method="GET">
+                    <label for="Name">Name of the template (needs to be unique):*</label><br />
+                    <input name="Name" type="text" required placeholder="Bug" /><br />
+
+                    <label for="Description">Description of the template:*</label><br />
+                    <input name="Description" type="text" required placeholder="Report a bug" /><br />
+
+                    <label for="Title">Default title:</label><br />
+                    <input name="Title" type="text" placeholder="[BUG]" /><br />
+                    
+                    <label for="Labels">Labels seperated with comma:</label><br />
+                    <input name="Labels" type="text" placeholder="bug,triage" /><br />
+
+                    <label for="Assignees">Assignees seperated with comma:</label><br />
+                    <input name="Assignees" type="text" placeholder="github, octocat" /><br />
+                    
+                    <label for="Issue_body">Issue body. (If true a markdown editor will be rendered on the bottom of the submission form.)</label><br />
+                    <select name="Issue_body">
+                        <option value="true" default>True</option>
+                        <option value="false">False</option>
+                    </select>
+
+                    <p>*Required fields</p>
+
+                    <input name="Submit_button" type="submit" /><br />
+                </form>
+            </section>
+        </article>
+    </body>
 </html>
 
