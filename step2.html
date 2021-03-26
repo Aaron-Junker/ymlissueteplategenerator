@@ -17,13 +17,13 @@
     </head>
     <body>
         <header>
-            <h1><p style="color:red">This website is under construction</p></h1>
-            <h1>GitHub YML issue template generator</h1>
+            <div w3-include-html="elements/header.html"></div>
             <a href="index.html">Back (progress gets lost)</a>
         </header>
         <article>
             <section>
                 <br />
+                <button onclick="copy()">Add this to clipboard</button><br />
                 <textarea id="output" wrap="off" rows="20" readonly>Please activate JavaScript!</textarea>
             </section>
             <section>
@@ -94,5 +94,11 @@
                 </form>
             </section>
         </article>
+        <footer>
+            <div w3-include-html="elements/footer.html"></div>
+        </footer>
     </body>
+    <script>
+        includeHTML();
+    </script>
 </html>

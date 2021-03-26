@@ -10,11 +10,11 @@
                 font-family: sans-serif;
             }
         </style>
+        <script src="js.js"></script>
     </head>
     <body> 
         <header>
-            <h1><p style="color:red">This website is under construction</p></h1>
-            <h1>GitHub YML issue template generator</h1>
+            <div w3-include-html="elements/header.html"></div>
         </header>
         <article>
             <section>
@@ -51,6 +51,12 @@
                 </form>
             </section>
         </article>
+        <footer>
+            <div w3-include-html="elements/footer.html"></div>
+        </footer>
     </body>
+    <script>
+        includeHTML();
+    </script>
 </html>
 
