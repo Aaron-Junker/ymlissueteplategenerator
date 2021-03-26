@@ -35,7 +35,7 @@
                     <label for="textfield_Label">Label:*</label><br />
                     <input name="textfield_Label" type="text" required /><br />
 
-                    <label for="textfield_Value">Value (Default text):</label><br />
+                    <label for="textfield_Value">Value (selected text):</label><br />
                     <input name="textfield_Value" type="text" /><br />
 
                     <label for="textfield_Description">Description:</label><br />
@@ -49,7 +49,7 @@
 
                     <label for="textfield_Required">Field is required</label><br />
                     <select name="textfield_Required">
-                        <option value="true" default>True</option>
+                        <option value="true" selected>True</option>
                         <option value="false">False</option>
                     </select>
 
@@ -69,7 +69,7 @@
                     <label for="textarea_Label">Label:*</label><br />
                     <input name="textarea_Label" type="text" required /><br />
 
-                    <label for="textarea_Value">Value (Default text):</label><br />
+                    <label for="textarea_Value">Value (selected text):</label><br />
                     <textarea name="textarea_Value" type="text"></textarea><br />
 
                     <label for="textarea_Description">Description:</label><br />
@@ -86,7 +86,59 @@
 
                     <label for="textarea_Required">Field is required</label><br />
                     <select name="textarea_Required">
-                        <option value="true" default>True</option>
+                        <option value="true" selected>True</option>
+                        <option value="false">False</option>
+                    </select>
+
+                    <input type="submit" value="Add!" />
+                </form>
+
+                <h4>Dropdown</h4>
+                <form action="javascript:add_dropdown()" validate>
+                    <label for="dropdown_Label">Label:*</label><br />
+                    <input name="dropdown_Label" type="text" required /><br />
+
+                    <label for="dropdown_Options">Options (The scheme like in shown in the placeholder):*</label><br />
+                    <textarea name="dropdown_Options" required placeholder='- Option 1'></textarea><br />
+
+                    <label for="dropdown_Description">Description:</label><br />
+                    <input name="dropdown_Description" type="text" /><br />
+
+                    <label for="dropdown_Multiple">User can choose multiple selections.</label><br />
+                    <select name="dropdown_Multiple">
+                        <option value="true">True</option>
+                        <option value="false" selected>False</option>
+                    </select><br />
+
+                    <label for="dropdown_Id">Id (unique):</label><br />
+                    <input name="dropdown_Id" type="text" /><br />
+
+                    <label for="dropdown_Required">Field is required</label><br />
+                    <select name="dropdown_Required">
+                        <option value="true" selected>True</option>
+                        <option value="false">False</option>
+                    </select>
+
+                    <input type="submit" value="Add!" />
+                </form>
+
+                <h4>Checkbox</h4>
+                <form action="javascript:add_checkbox()" validate>
+                    <label for="checkbox_Label">Label general:</label><br />
+                    <input name="checkbox_Label" type="text" /><br />
+
+                    <label for="checkbox_Options">Label of the item:*</label><br />
+                    <input name="checkbox_Options" type="text" required /><br />
+
+                    <label for="checkbox_Description">Description:</label><br />
+                    <input name="checkbox_Description" type="text" /><br />
+
+                    <label for="checkbox_Id">Id (unique):</label><br />
+                    <input name="checkbox_Id" type="text" /><br />
+
+                    <label for="checkbox_Required">Field is required</label><br />
+                    <select name="checkbox_Required">
+                        <option value="true" selected>True</option>
                         <option value="false">False</option>
                     </select>
 

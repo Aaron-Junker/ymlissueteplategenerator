@@ -53,6 +53,9 @@ function checkParams(){
 }
 
 document.addEventListener("DOMContentLoaded",function (){
+    // Sets placeholders
+    document.getElementsByName("dropdown_Options")[0].placeholder="- Option 1\n- Option 2";
+    // Sets the head attributes
     var outputElement = document.getElementById("output");
     if(checkParams()){
         outputElement.innerHTML=
@@ -155,5 +158,66 @@ outputElement.innerHTML+=
     Placeholder.value="";
     Value.value = "";
     Render.value = "";
+    Id.value="";
+}
+
+function add_dropdown(){
+    var outputElement = document.getElementById("output");
+    var Label = document.getElementsByName("dropdown_Label")[0];
+    var Description = document.getElementsByName("dropdown_Description")[0];
+    var Options = document.getElementsByName("dropdown_Options")[0];
+    var Multiple = document.getElementsByName("dropdown_Multiple")[0];
+    var Id = document.getElementsByName("dropdown_Id")[0];
+    var Required = document.getElementsByName("dropdown_Required")[0];
+    outputElement.innerHTML+=
+`
+- type: dropdown`
+if(Id.value!==""){
+    outputElement.innerHTML+=`
+  id: `+Id.value;
+}
+outputElement.innerHTML+=
+`
+  attributes:
+    label: "`+Label.value+`"
+    description: "`+Description.value+`"
+    multiple: `+Multiple.value+`
+    options: 
+      `+Options.value.replaceAll("\n", "\n      ")+`
+  validations:
+    required: `+Required.value+``;
+
+    Label.value="";
+    Description.value="";
+    Options.value = "";
+    Id.value="";
+}
+
+function add_checkbox(){
+    var outputElement = document.getElementById("output");
+    var Label = document.getElementsByName("checkbox_Label")[0];
+    var Description = document.getElementsByName("checkbox_Description")[0];
+    var Options = document.getElementsByName("checkbox_Options")[0];
+    var Id = document.getElementsByName("checkbox_Id")[0];
+    var Required = document.getElementsByName("checkbox_Required")[0];
+    outputElement.innerHTML+=
+`
+- type: checkbox`
+if(Id.value!==""){
+    outputElement.innerHTML+=`
+  id: `+Id.value;
+}
+outputElement.innerHTML+=
+`
+  attributes:
+    label: "`+Label.value+`"
+    description: "`+Description.value+`"
+    options: 
+      - label: "`+Options.value+`"
+        required: `+Required.value
+
+    Label.value="";
+    Description.value="";
+    Options.value = "";
     Id.value="";
 }
