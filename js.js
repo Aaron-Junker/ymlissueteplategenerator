@@ -112,8 +112,9 @@ function add_markdown(){
     outputElement.innerHTML+=
 `
 - type: markdown
-  value: |
-    `+Value.value.replaceAll("\n", "\n    ");
+  attributes:
+    value: |
+      `+Value.value.replaceAll("\n", "\n      ");
     Value.value = ""
 }
 
@@ -141,12 +142,12 @@ outputElement.innerHTML+=
     label: "`+Label.value+`"
     description: "`+Description.value+`"
     placeholder: |
-       `+Placeholder.value.replaceAll("\n", "\n    ")+`
+      `+Placeholder.value.replaceAll("\n", "\n      ")+`
     value: |
-       `+Value.value.replaceAll("\n", "\n    ")+`
+      `+Value.value.replaceAll("\n", "\n      ")+`
 `
     if(Render.value!=""){
-        outputElement.innerHTML+=`  render: `+Render.value+`
+        outputElement.innerHTML+=`    render: `+Render.value+`
 `;
     }
 outputElement.innerHTML+=
