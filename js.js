@@ -27,7 +27,12 @@ function includeHTML() {
   }
 }
 
-
+window.onbeforeunload = function(event) {
+  if(!submitButtonClicked){
+    event.preventDefault();
+    return event.returnValue = "Do you really want to leave this page? All progress will get lost.";
+  }
+};
 
 // If browser doesn't support URLSearchParams it gets redirected to OldBrowser.html
 if(!URLSearchParams){
@@ -35,6 +40,12 @@ if(!URLSearchParams){
 }
 
 const urlParams = new URLSearchParams(window.location.search);
+
+var submitButtonClicked = false;
+
+function submitButtonClickedEvent(){
+    submitButtonClicked = true;
+}
 
 function copy(){
     var outputElement = document.getElementById("output");
@@ -49,7 +60,7 @@ function copy(){
 
 function checkParams(){
     // This funtion checks if the parameters are filled out
-    return (typeof urlParams.get('Name') !== 'undefined' && typeof urlParams.get('Description') !== 'undefined' && typeof urlParams.get('Issue_body') !== 'undefined');
+    return (typeof urlParams.get('Name') !== 'undefined' && typeof urlParams.get('Description') !== 'undefined');
 }
 
 document.addEventListener("DOMContentLoaded",function (){
@@ -58,13 +69,28 @@ document.addEventListener("DOMContentLoaded",function (){
     // Sets the head attributes
     var outputElement = document.getElementById("output");
     if(checkParams()){
-        outputElement.innerHTML=
+      title = urlParams.get('Title');
+      labels = urlParams.get('Labels');
+      assignees = urlParams.get('Assignees');
+      outputElement.innerHTML =
 `name: "`+urlParams.get('Name')+`"
-description: "`+urlParams.get('Description')+`"
-title: "`+urlParams.get('Title')+`"
-labels: "`+urlParams.get('Labels')+`"
-assignees: "`+urlParams.get('Assignees')+`"
-issue_body: `+urlParams.get('Issue_body')+`
+description: "`+urlParams.get('Description');
+if(title!==""){
+outputElement.innerHTML +=
+`
+title: "`+urlParams.get('Title')+"\""
+};
+if(labels!==""){
+outputElement.innerHTML +=
+`
+labels: "`+urlParams.get('Labels')+"\""
+}
+if(assignees!==""){
+  outputElement.innerHTML +=
+  `
+  assignees: "`+urlParams.get('Assignees')+"\""
+}
+outputElement.innerHTML +=`"
 body:`;
     }else{
         location.href = "index.html"
@@ -90,10 +116,10 @@ if(Id.value!==""){
 outputElement.innerHTML+=
 `
   attributes:
-    label: "`+Label.value+`"
-    description: "`+Description.value+`"
-    placeholder: "`+Placeholder.value+`"
-    value: "`+Value.value+`"
+    label: "`+Label.value+"\""+(Description.value!==""?`
+    description: "`+Description.value+"\"":"")+(Placeholder.value!==""?`
+    placeholder: "`+Placeholder.value+"\"":"")+(Value.value!==""?`
+    value: "`+Value.value+"\"":"")+`
   validations:
     required: `+Required.value+``;
 
@@ -139,12 +165,12 @@ if(Id.value!==""){
 outputElement.innerHTML+=
 `
   attributes:
-    label: "`+Label.value+`"
-    description: "`+Description.value+`"
+    label: "`+Label.value+"\""+( Description.value!==""?`
+    description: "`+Description.value+"\"":"")+(Placeholder.value!==""?`
     placeholder: |
-      `+Placeholder.value.replaceAll("\n", "\n      ")+`
+      `+Placeholder.value.replaceAll("\n", "\n      "):"")+(Value.value!==""?`
     value: |
-      `+Value.value.replaceAll("\n", "\n      ")+`
+      `+Value.value.replaceAll("\n", "\n      "):"")+`
 `
     if(Render.value!=""){
         outputElement.innerHTML+=`    render: `+Render.value+`
@@ -180,8 +206,8 @@ if(Id.value!==""){
 outputElement.innerHTML+=
 `
   attributes:
-    label: "`+Label.value+`"
-    description: "`+Description.value+`"
+    label: "`+Label.value+"\""+(Description.value!==""?`
+    description: "`+Description.value+"\"":"")+`
     multiple: `+Multiple.value+`
     options: 
       `+Options.value.replaceAll("\n", "\n      ")+`
@@ -203,16 +229,16 @@ function add_checkbox(){
     var Required = document.getElementsByName("checkbox_Required")[0];
     outputElement.innerHTML+=
 `
-- type: checkbox`
+- type: checkboxes`
 if(Id.value!==""){
     outputElement.innerHTML+=`
   id: `+Id.value;
 }
 outputElement.innerHTML+=
 `
-  attributes:
-    label: "`+Label.value+`"
-    description: "`+Description.value+`"
+  attributes:`+(Label.value!==""?`
+    label: "`+Label.value+"\"":"")+(Description.value!==""?`
+    description: "`+Description.value+"\"":"")+`
     options: 
       - label: "`+Options.value+`"
         required: `+Required.value

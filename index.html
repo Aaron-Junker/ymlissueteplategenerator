@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>GitHub YML issue template generator</title>
+        <title>GitHub issue forms generator</title>
         <style>
             * {
                 font-family: sans-serif;
@@ -18,8 +18,7 @@
         </header>
         <article>
             <section>
-                <p>This website helps you to create the new yml issue templates for GitHub.</p>
-                <p>Please note that they are in the moment in a closed beta status, so only a few repositorys can use them.</p>
+                <p>This website helps you to create the new issue forms for GitHub issues.</p>
             </section>
             <section>
                 <h3>Start creating</h3>
@@ -28,26 +27,20 @@
                     <input name="Name" type="text" required placeholder="Bug" /><br />
 
                     <label for="Description">Description of the template:*</label><br />
-                    <input name="Description" type="text" required placeholder="Report a bug" /><br />
+                    <input name="Description" minlength="3" type="text" required placeholder="Report a bug" /><br />
 
                     <label for="Title">Default title:</label><br />
                     <input name="Title" type="text" placeholder="[BUG]" /><br />
                     
-                    <label for="Labels">Labels seperated with comma:</label><br />
+                    <label for="Labels">Labels separated with comma:</label><br />
                     <input name="Labels" type="text" placeholder="bug,triage" /><br />
 
-                    <label for="Assignees">Assignees seperated with comma:</label><br />
+                    <label for="Assignees">Assignees separated with comma:</label><br />
                     <input name="Assignees" type="text" placeholder="github, octocat" /><br />
-                    
-                    <label for="Issue_body">Issue body. (If true a markdown editor will be rendered on the bottom of the submission form.)</label><br />
-                    <select name="Issue_body">
-                        <option value="true" default>True</option>
-                        <option value="false">False</option>
-                    </select>
 
                     <p>*Required fields</p>
 
-                    <input name="Submit_button" type="submit" /><br />
+                    <input name="Submit_button" type="submit" onClick="submitButtonClickedEvent()" /><br />
                 </form>
             </section>
         </article>

@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>GitHub YML issue template generator</title>
+        <title>GitHub YML issue forms generator</title>
         <style>
             * {
                 font-family: sans-serif;
@@ -30,12 +30,12 @@
                 <h3>Add elements (At least one needed):</h3>
                 <p>*Required fields</p>
 
-                <h4>Textfield</h4>
+                <h4>Input field</h4>
                 <form action="javascript:add_textfield()" validate>
                     <label for="textfield_Label">Label:*</label><br />
                     <input name="textfield_Label" type="text" required /><br />
 
-                    <label for="textfield_Value">Value (selected text):</label><br />
+                    <label for="textfield_Value">Value (Default text):</label><br />
                     <input name="textfield_Value" type="text" /><br />
 
                     <label for="textfield_Description">Description:</label><br />
@@ -69,7 +69,7 @@
                     <label for="textarea_Label">Label:*</label><br />
                     <input name="textarea_Label" type="text" required /><br />
 
-                    <label for="textarea_Value">Value (selected text):</label><br />
+                    <label for="textarea_Value">Value (Default text):</label><br />
                     <textarea name="textarea_Value" type="text"></textarea><br />
 
                     <label for="textarea_Description">Description:</label><br />
@@ -78,7 +78,7 @@
                     <label for="textarea_Placeholder">Placeholder:</label><br />
                     <textarea name="textarea_Placeholder"></textarea><br />
 
-                    <label for="textarea_Render">Render as (for Code) (left blank for normal Markdown):</label><br />
+                    <label for="textarea_Render">Render as code (left blank for normal Markdown):</label><br />
                     <input name="textarea_Render" type="text" placeholder="bash" /><br />
 
                     <label for="textarea_Id">Id (unique):</label><br />
@@ -122,12 +122,12 @@
                     <input type="submit" value="Add!" />
                 </form>
 
-                <h4>Checkbox (Currently breaks GitHub)</h4>
+                <h4>Checkbox</h4>
                 <form action="javascript:add_checkbox()" validate>
-                    <label for="checkbox_Label">Label general:</label><br />
+                    <label for="checkbox_Label">Top label:</label><br />
                     <input name="checkbox_Label" type="text" /><br />
 
-                    <label for="checkbox_Options">Label of the item:*</label><br />
+                    <label for="checkbox_Options">Option label:*</label><br />
                     <input name="checkbox_Options" type="text" required /><br />
 
                     <label for="checkbox_Description">Description:</label><br />
