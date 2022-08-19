@@ -1,7 +1,7 @@
-# yml issue teplate generator
+# Issue forms generator
 
-https://case-games.github.io/ymlissueteplategenerator
+https://blog.aaron-junker.ch/ymlissueteplategenerator/
 
-This website lets you generate the new closed beta yml issue templates.
+This website lets you generate the issue forms of GitHub.
 
-Feel free to conribute!
+Feel free to leave feedback (bugs or feature requests in the issues sections).
